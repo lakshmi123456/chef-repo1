@@ -7,24 +7,20 @@ RUN  yum -y install httpd && \
 
 RUN echo "hellow httpd  file " > /var/www/html/index.html
 
-RUN wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-9/v9.0.1/bin/apache-tomcat-9.0.1.tar.gz
+#RUN wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-9/v9.0.1/bin/apache-tomcat-9.0.1.tar.gz
 
-RUN tar -xzf  apache-tomcat-9.0.1.tar.gz
+#RUN tar -xzf  apache-tomcat-9.0.1.tar.gz
 
 #EXPOSE 8080
 EXPOSE 80
 
-ENV CATALINA_HOME /apache-tomcat-9.0.1
-ENV PATH $CATALINA_HOME/bin:$PATH
+#ENV CATALINA_HOME /apache-tomcat-9.0.1
+#ENV PATH $CATALINA_HOME/bin:$PATH
 
-#RUN mkdir -p "$CATALINA_HOME"
-#WORKDIR $CATALINA_HOME
 
 WORKDIR /tmp
 
 #CMD ["./startup.sh", "run"]
 EXPOSE 8080
-#CMD ["sh startup.sh", "run"]
-#CMD [ "./startup.sh" ]
 
 ONBUILD ADD demo.html /tmp
